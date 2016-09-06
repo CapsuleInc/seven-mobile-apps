@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html manifest="/manifest.appcache">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="http://fonts.googleapis.com/css?family=Raleway:400,300,600"
+  rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="node_modules/skeleton-css/css/normalize.css">
+  <link rel="stylesheet" href="node_modules/skeleton-css/css/skeleton.css">
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="icon" type="image/png" href="./images/favicon.png">
+  <link rel="apple-touch-icon" href="./images/favicon.png">
+  <title>World Clock</title>
+</head>
+<body>
+
+  <div class="container">
+    <h1>World Clock</h1>
+    <a class="button button-secondary" id="editLink">Edit</a>
+    <a class="button button-secondary u-pull-right" id="addClockLink">Add Clock</a>
+    <a class="button button-secondary u-pull-right" id="toggleTimeFormatLink">Toggle Time Format</a>
+    <div class="row">
+      <div id="zoneList" class="one-half column u-pull-right"></div>
+      <div id="clockList" class="one-half column"></div>
+    </div>
+  </div>
+
+  <script src="node_modules/underscore/underscore-min.js"></script>
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/mustache/mustache.min.js"></script>
+  <script src="scripts/main.js"></script>
+  <script src="scripts/time_zone_manager.js"></script>
+  <script src="scripts/clock.js"></script>
+  <script src="scripts/view_controller.js"></script>
+  <script id="clockTemplate" type="text/template">
+    <div class="clock">
+      <p class="clock-time">{{time}}</p>
+      <p class="clock-timezone">{{name}} ({{formatted_offset}})
+        <a class="delete-clock-link">[delete]</a>
+      </p>
+    </div>
+  </script>
+  <script id="timeZoneTemplate" type="text/template">
+    <div class="timezone">
+      <p class="timezone-name">{{name}}</p>
+      <p class="timezone-offset"> (UTC {{formatted_offset}} hours) </p>
+    </div>
+  </script>
+</body>
+</html>
